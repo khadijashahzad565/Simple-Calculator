@@ -6,7 +6,8 @@ let screenValue = ''; //Initializes an empty string to store the calculator inpu
 // Loops through each button, adds a click event listener, and gets the text of the clicked button.
 for(let item of buttons){  
     item.addEventListener('click', (event) => { 
-        let buttonText = event.target.innerText; 
+        let buttonText = event.target.innerText;
+        console.log(); 
 
 
         // If 'AC' button is clicked, it clears the input and display.
