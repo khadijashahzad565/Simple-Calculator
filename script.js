@@ -1,30 +1,31 @@
-let screen = document.getElementById('screen'); //Gets the element where the result will be shown.
-let buttons = document.querySelectorAll('button'); //Gets all the buttons on the page.
-let screenValue = ''; //Initializes an empty string to store the calculator input.
+let expression = document.getElementById('expression'); 
+let result = document.getElementById('result');
+let buttons = document.querySelectorAll('button'); 
+let screenValue = ''; 
 
 
-// Loops through each button, adds a click event listener, and gets the text of the clicked button.
 for(let item of buttons){  
     item.addEventListener('click', (event) => { 
         let buttonText = event.target.innerText; 
 
-
-        // If 'AC' button is clicked, it clears the input and display.
+        //  If 'AC' button is clicked, clear the screen value and result and expression display
+        
         if (buttonText == 'AC'){ 
             screenValue = '';  
-            screen.value = '';
+            expression.innerText = '';
+            result.innerText = '';
         }
 
-        // If '=' button is clicked, it evaluates the expression, shows the result, and clears the input.
+         // If '=' button is clicked, evaluate the screen value and show the result.
         else if (buttonText == '='){ 
-            screen.value = eval(screenValue);
+            result.innerText = eval(screenValue);
             screenValue = '';  
         }
 
-        // For any other button, it adds the text to the input and updates the display.
+       // For any other button, add the button text to the screen value and update the expression display.
         else{ 
             screenValue += buttonText;
-            screen.value = screenValue;
+            expression.innerText = screenValue;
         }
     });
 }
